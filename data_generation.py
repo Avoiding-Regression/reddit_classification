@@ -14,5 +14,7 @@ col_names = ['title', 'score','id','subreddit','url','num_comments', 'body', 'cr
 gamestop_frame = pd.DataFrame(gamestop_posts, columns=col_names)
 tesla_frame = pd.DataFrame(tesla_posts, columns=col_names)
 
-print(gamestop_frame.shape, tesla_frame.shape)
+gamestop_frame.to_csv("gamestop.csv")
+tesla_frame.to_csv("tesla.csv")
+
 
