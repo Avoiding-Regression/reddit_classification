@@ -59,7 +59,7 @@ tesla_wordcloud = WordCloud(width=600,
 
 plt.figure(figsize=(10, 7))
 plt.imshow(tesla_wordcloud, interpolation='bilinear')
-plt.axis('off');
+plt.axis('off')
 plt.title('Tesla Word Cloud')
 plt.show()
 
@@ -69,12 +69,18 @@ tesla_top_10 = fd.most_common(10)
 tesla_fdist = pd.Series(dict(tesla_top_10))
 sns.set_theme(style = "ticks")
 sns.barplot(y=tesla_fdist.index, x=tesla_fdist.values, color = 'green')
+plt.title('Tesla Frequecy Distribution')
+plt.xlabel('FDistribution Values')
+plt.ylabel('Fdistribution Index')
 plt.show()
 
 
 ### START GAMESTOP EDA ###
 gamestop['text_length'] = gamestop['title'].apply(len)
 sns.histplot(data=tesla, x = 'text_length')
+plt.title('Gamestop Frequency')
+plt.xlabel('Text Length')
+plt.ylabel('Text Count')
 plt.show()
 
 stopwords = nltk.corpus.stopwords.words('english')
@@ -107,7 +113,8 @@ gamestop_wordcloud = WordCloud(width=600,
 
 plt.figure(figsize=(10, 7))
 plt.imshow(gamestop_wordcloud, interpolation='bilinear')
-plt.axis('off');
+plt.title('Gamestop Word Cloud')
+plt.axis('off')
 plt.show()
 
 gamestop_words = nltk.word_tokenize(all_gamestop_words_lem)
@@ -116,4 +123,7 @@ gamestop_top_10 = fd.most_common(10)
 gamestop_fdist = pd.Series(dict(gamestop_top_10))
 sns.set_theme(style = "ticks")
 sns.barplot(y=gamestop_fdist.index, x=gamestop_fdist.values, color = 'green')
+plt.title('Gamestop Frequency Distribution')
+plt.xlabel('FDistribution Values')
+plt.ylabel('Fdistribution Index')
 plt.show()
