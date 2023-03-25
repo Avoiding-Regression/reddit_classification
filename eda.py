@@ -22,6 +22,9 @@ print(tesla.isnull().sum())
 
 tesla['text_length'] = tesla['title'].apply(len)
 sns.histplot(data=tesla, x = 'text_length')
+plt.title('Tesla Text Length')
+plt.xlabel('Text Length')
+plt.ylabel('Text Count')
 plt.show()
 
 stopwords = nltk.corpus.stopwords.words('english')
@@ -55,6 +58,7 @@ tesla_wordcloud = WordCloud(width=600,
 plt.figure(figsize=(10, 7))
 plt.imshow(tesla_wordcloud, interpolation='bilinear')
 plt.axis('off');
+plt.title('Tesla Word Cloud')
 plt.show()
 
 tesla_words = nltk.word_tokenize(all_tesla_words_lem)
