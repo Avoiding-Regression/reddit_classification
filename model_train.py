@@ -24,3 +24,5 @@ def main():
     #Change for SGD
     x_train, x_test, y_train, y_test = train_test_split(df['text'], df['labels'], test_size=0.2, random_state=4)
     k_nearest_neighbors(x_train, x_test, y_train, y_test)
+
+    return adaboost_model, k_nearest_neighbors,xg_boost, bert, sgd_classifier
