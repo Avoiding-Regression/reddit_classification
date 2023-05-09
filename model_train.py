@@ -13,16 +13,13 @@ def main():
     x_train, x_test, y_train, y_test = train_test_split(df['text'], df['labels'], test_size=0.2, random_state=4)
     k_nearest_neighbors(x_train, x_test, y_train, y_test)
 
-    ##Change for bert
-    x_train, x_test, y_train, y_test = train_test_split(df['text'], df['labels'], test_size=0.2, random_state=4)
-    k_nearest_neighbors(x_train, x_test, y_train, y_test)
 
     ##Change for XGBoost
     x_train, x_test, y_train, y_test = train_test_split(df['text'], df['labels'], test_size=0.2, random_state=50)
     xg_boost(x_train, x_test, y_train, y_test)
 
-    #Change for SGD
+
     x_train, x_test, y_train, y_test = train_test_split(df['text'], df['labels'], test_size=0.2, random_state=4)
     k_nearest_neighbors(x_train, x_test, y_train, y_test)
 
-    return adaboost_model, k_nearest_neighbors,xg_boost, bert, sgd_classifier
+    return adaboost_model, k_nearest_neighbors,xg_boost, sgd_classifier
