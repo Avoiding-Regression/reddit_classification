@@ -13,18 +13,18 @@ def main():
     data_cleaning()
     df= df
     x_train, x_test, y_train, y_test = train_test_split(df['text'], df['labels'], test_size=0.2, random_state=42)
-    abc(x_train, y_train)
+    abc(x_test, y_test)
 
     x_train, x_test, y_train, y_test = train_test_split(df['text'], df['labels'], test_size=0.2, random_state=4)
-    k_nearest_neighbors(x_train, y_train)
+    k_nearest_neighbors(x_test, y_test)
 
 
     ##Change for XGBoost
     x_train, x_test, y_train, y_test = train_test_split(df['text'], df['labels'], test_size=0.2, random_state=50)
-    xg_boost(x_train, y_train)
+    xg_boost(x_test, y_test)
 
 
     x_train, x_test, y_train, y_test = train_test_split(df['text'], df['labels'], test_size=0.2, random_state=4)
-    sgd_classifier(x_train, y_train)
+    sgd_classifier(x_test, y_test)
 
     return adaboost_model, k_nearest_neighbors,xg_boost, sgd_classifier
