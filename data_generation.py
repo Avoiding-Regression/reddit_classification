@@ -3,6 +3,7 @@ from data_helper import get_subreddit_posts
 
 import praw
 import pandas as pd
+from data_cleaning import data_cleaning
 
 def main():
     reddit = praw.Reddit(client_id=praw_id, client_secret=praw_secret, user_agent='test scraper app')
@@ -14,8 +15,11 @@ def main():
     gamestop_frame = pd.DataFrame(gamestop_posts, columns=col_names)
     tesla_frame = pd.DataFrame(tesla_posts, columns=col_names)
 
-    gamestop_frame.to_csv("gamestop.csv")
-    tesla_frame.to_csv("tesla.csv")
+    gs = gamestop_frame.to_csv("gamestop.csv")
+    tesla = tesla_frame.to_csv("tesla.csv")
+
+    gs_tokens, gs = data_cleaning(gs)
+    tesla_tokens, tesla = data_cleaning(tesla)
 
 if __name__ == "__main__":
     main()
