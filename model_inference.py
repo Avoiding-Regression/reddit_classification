@@ -8,10 +8,10 @@ from sklearn.model_selection import train_test_split
 from ADAboost import adaboost_model
 from knn import k_nearest_neighbors
 from xgboost import xgboost
+import data_generation 
 
-def main():
-    data_cleaning()
-    df= df
+def model_inf(final_df):
+    df = final_df
     x_train, x_test, y_train, y_test = train_test_split(df['text'], df['labels'], test_size=0.2, random_state=42)
     abc(x_test, y_test)
 
