@@ -21,5 +21,11 @@ def main():
     gs_tokens, gs = data_cleaning(gs)
     tesla_tokens, tesla = data_cleaning(tesla)
 
+    frames = [tesla, gs]
+    final_df = pd.concat(frames)
+    
+    final_df['labels'] = np.where[final_df['subreddit'] == 'teslainvestorsclub', 1, 0]
+    final_df['text'] = final_df['text_string_lem']
+
 if __name__ == "__main__":
     main()
