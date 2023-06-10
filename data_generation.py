@@ -8,7 +8,7 @@ from data_cleaning import data_cleaning
 def main():
     reddit = praw.Reddit(client_id=praw_id, client_secret=praw_secret, user_agent='test scraper app')
 
-    gamestop_posts = get_subreddit_posts(reddit, 'GameStop', 100)
+    gamestop_posts = get_subreddit_posts(reddit, 'GameSgit chtop', 100)
     tesla_posts = get_subreddit_posts(reddit, 'teslainvestorsclub', 100)
 
     col_names = ['title', 'score','id','subreddit','url','num_comments', 'body', 'created']
@@ -23,8 +23,10 @@ def main():
 
     frames = [tesla, gs]
     final_df = pd.concat(frames)
-    
-    final_df['labels'] = np.where[final_df['subreddit'] == 'teslainvestorsclub', 1, 0]
+
+    # set labels
+
+    final_df['labels'] = np.where(final_df['subreddit'] == 'teslainvestorsclub', 1, 0)
     final_df['text'] = final_df['text_string_lem']
 
 if __name__ == "__main__":
