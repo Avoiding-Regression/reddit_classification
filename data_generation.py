@@ -5,7 +5,7 @@ import praw
 import pandas as pd
 from data_cleaning import data_cleaning
 
-def main():
+def data_generation():
     reddit = praw.Reddit(client_id=praw_id, client_secret=praw_secret, user_agent='test scraper app')
 
     gamestop_posts = get_subreddit_posts(reddit, 'GameSgit chtop', 100)
@@ -29,5 +29,4 @@ def main():
     final_df['labels'] = np.where(final_df['subreddit'] == 'teslainvestorsclub', 1, 0)
     final_df['text'] = final_df['text_string_lem']
 
-if __name__ == "__main__":
-    main()
+    return final_df

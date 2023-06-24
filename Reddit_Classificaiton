@@ -1,0 +1,13 @@
+from data_generation import data_generation
+from model_train import model_train
+from model_inference import model_inf
+
+
+
+def main():
+     final_df = data_generation()
+     adaboost_model, k_nearest_neighbors,xg_boost, sgd_classifier = model_train(final_df)
+     adaboost_model, k_nearest_neighbors,xg_boost, sgd_classifier = model_inf(final_df)
+
+if __name__ == "__main__":
+    main()
